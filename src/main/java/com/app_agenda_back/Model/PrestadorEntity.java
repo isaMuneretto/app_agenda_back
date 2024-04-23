@@ -1,41 +1,36 @@
 package com.app_agenda_back.Model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Objects;
 
-@Entity
-public class UsuarioEntity implements Serializable {
-    private static final long serialVersionUID=1L;
+public class PrestadorEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     @Column(unique = true)
-    private String cpf;
+    private String cnpj;
     @Column(unique = true)
     private String email;
-    private String senha;
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date data_nascimento;
+    private String cep;
+    private String razao_social;
     @OneToOne
     @JoinColumn(name="id_endereco")
     private EnderecoEntity endereco;
 
-    public UsuarioEntity() {
-
+    public PrestadorEntity() {
     }
 
-    public UsuarioEntity(Integer id, String nome, String cpf, String email, String senha, Date data_nascimento, EnderecoEntity endereco) {
+    public PrestadorEntity(Integer id, String nome, String cnpj, String email, String cep, String razao_social, EnderecoEntity endereco) {
         this.id = id;
         this.nome = nome;
-        this.cpf = cpf;
+        this.cnpj = cnpj;
         this.email = email;
-        this.senha = senha;
-        this.data_nascimento = data_nascimento;
+        this.cep = cep;
+        this.razao_social = razao_social;
         this.endereco = endereco;
     }
 
@@ -55,12 +50,12 @@ public class UsuarioEntity implements Serializable {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getEmail() {
@@ -71,20 +66,20 @@ public class UsuarioEntity implements Serializable {
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getCep() {
+        return cep;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
-    public Date getData_nascimento() {
-        return data_nascimento;
+    public String getRazao_social() {
+        return razao_social;
     }
 
-    public void setData_nascimento(Date data_nascimento) {
-        this.data_nascimento = data_nascimento;
+    public void setRazao_social(String razao_social) {
+        this.razao_social = razao_social;
     }
 
     public EnderecoEntity getEndereco() {
@@ -99,7 +94,7 @@ public class UsuarioEntity implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UsuarioEntity that = (UsuarioEntity) o;
+        PrestadorEntity that = (PrestadorEntity) o;
         return Objects.equals(id, that.id);
     }
 
