@@ -1,113 +1,59 @@
 package com.app_agenda_back.Model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Objects;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "endereco")
 public class EnderecoEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String rua;
-    private String cep;
-    private String numero;
-    private String complemento;
-    private String cidade;
-    private String estado;
-    private String bairro;
+    @Column(name = "endereco_id")
+    private Long endereco_id;
+
+    @Column(name = "endereco_rua")
+    private String endereco_rua;
+
+    @Column(name = "endereco_cep")
+    private String endereco_cep;
+
+    @Column(name = "endereco_numero")
+    private String endereco_numero;
+
+    @Column(name = "endereco_complemento")
+    private String endereco_complemento;
+
+    @Column(name = "endereco_cidade")
+    private String endereco_cidade;
+
+    @Column(name = "endereco_estado")
+    private String endereco_estado;
+
+    @Column(name = "endereco_bairro")
+    private String endereco_bairro;
 
     public EnderecoEntity() {
 
     }
-    public EnderecoEntity(Integer id, String rua, String cep, String numero, String complemento, String cidade, String estado, String bairro) {
-        this.id = id;
-        this.rua = rua;
-        this.cep = cep;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.cidade = cidade;
-        this.estado = estado;
-        this.bairro = bairro;
+
+    public EnderecoEntity(Long endereco_id, String endereco_rua, String endereco_cep, String endereco_numero, String endereco_complemento, String endereco_cidade, String endereco_estado, String endereco_bairro) {
+        this.endereco_id = endereco_id;
+        this.endereco_rua = endereco_rua;
+        this.endereco_cep = endereco_cep;
+        this.endereco_numero = endereco_numero;
+        this.endereco_complemento = endereco_complemento;
+        this.endereco_cidade = endereco_cidade;
+        this.endereco_estado = endereco_estado;
+        this.endereco_bairro = endereco_bairro;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getRua() {
-        return rua;
-    }
-
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        EnderecoEntity that = (EnderecoEntity) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }
