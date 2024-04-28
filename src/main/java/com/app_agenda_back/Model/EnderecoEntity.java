@@ -41,19 +41,6 @@ public class EnderecoEntity implements Serializable {
     @Column(name = "endereco_bairro")
     private String endereco_bairro;
 
-    public EnderecoEntity() {
-
-    }
-
-    public EnderecoEntity(Long endereco_id, String endereco_rua, String endereco_cep, String endereco_numero, String endereco_complemento, String endereco_cidade, String endereco_estado, String endereco_bairro) {
-        this.endereco_id = endereco_id;
-        this.endereco_rua = endereco_rua;
-        this.endereco_cep = endereco_cep;
-        this.endereco_numero = endereco_numero;
-        this.endereco_complemento = endereco_complemento;
-        this.endereco_cidade = endereco_cidade;
-        this.endereco_estado = endereco_estado;
-        this.endereco_bairro = endereco_bairro;
-    }
+    
 
 }
