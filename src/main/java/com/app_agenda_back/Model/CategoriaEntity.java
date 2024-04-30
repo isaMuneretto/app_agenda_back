@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Data //@Getter @Setter @Hash
@@ -24,6 +25,7 @@ public class CategoriaEntity implements Serializable {
     @Column(name = "categoria_descricao")
     private String categoria_descricao;
 
-   
+    @OneToMany(mappedBy = "servico_id", fetch = FetchType.LAZY)
+    private List<ServicoEntity> servicos;
 
 }

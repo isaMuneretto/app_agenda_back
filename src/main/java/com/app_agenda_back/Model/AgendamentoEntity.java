@@ -34,67 +34,12 @@ public class AgendamentoEntity implements Serializable {
     private String agendamento_observacao;
     @Column(name = "agendamento_status")
     private String agendamento_status;
-    @ManyToOne
-    @JoinColumn(name = "agendamento_servico_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "agendamento_servico_id",nullable = false)
     private ServicoEntity servico;
-    @ManyToOne
-    @JoinColumn(name = "agendamento_usuario_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "agendamento_usuario_id",nullable = false)
     private UsuarioEntity usuario;
 
-    public Long getAgendamento_id() {
-        return agendamento_id;
-    }
-
-    public void setAgendamento_id(Long agendamento_id) {
-        this.agendamento_id = agendamento_id;
-    }
-
-    public LocalDate getAgendamento_data_inicio() {
-        return agendamento_data_inicio;
-    }
-
-    public void setAgendamento_data_inicio(LocalDate agendamento_data_inicio) {
-        this.agendamento_data_inicio = agendamento_data_inicio;
-    }
-
-    public LocalDate getAgendamento_data_fim() {
-        return agendamento_data_fim;
-    }
-
-    public void setAgendamento_data_fim(LocalDate agendamento_data_fim) {
-        this.agendamento_data_fim = agendamento_data_fim;
-    }
-
-    public String getAgendamento_observacao() {
-        return agendamento_observacao;
-    }
-
-    public void setAgendamento_observacao(String agendamento_observacao) {
-        this.agendamento_observacao = agendamento_observacao;
-    }
-
-    public String getAgendamento_status() {
-        return agendamento_status;
-    }
-
-    public void setAgendamento_status(String agendamento_status) {
-        this.agendamento_status = agendamento_status;
-    }
-
-    public ServicoEntity getServico() {
-        return servico;
-    }
-
-    public void setServico(ServicoEntity servico) {
-        this.servico = servico;
-    }
-
-    public UsuarioEntity getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(UsuarioEntity usuario) {
-        this.usuario = usuario;
-    }
 }
 

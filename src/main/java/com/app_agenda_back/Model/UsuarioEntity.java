@@ -9,8 +9,7 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Objects;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -40,8 +39,15 @@ public class UsuarioEntity implements Serializable {
     @Column(name = "usuario_dataNascimento")
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate usuario_dataNascimento;
-    @OneToOne
-    @JoinColumn(name = "usuario_endereco_id")
+
+    @ManyToOne(fetch = FetchType.LAZY) //carregamento lento
+    @JoinColumn(name = "usuario_endereco_id",nullable = false) //campo não pode ser nulo
     private EnderecoEntity endereco;
+
+    @OneToMany(mappedBy = "agendamento_id", fetch = FetchType.LAZY)
+    private List<AgendamentoEntity> agendamentos;
+
+    @OneToMany(mappedBy = "telefone_id", fetch = FetchType.LAZY)
+    private List<TelefoneEntity> telefones;
 
 }

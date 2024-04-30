@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Data
@@ -41,6 +42,9 @@ public class EnderecoEntity implements Serializable {
     @Column(name = "endereco_bairro")
     private String endereco_bairro;
 
-    
+    @OneToMany(mappedBy = "usuario_id", fetch = FetchType.LAZY)
+    private List<UsuarioEntity> usuarios;
 
+    @OneToMany(mappedBy = "prestador_id", fetch = FetchType.LAZY)
+    private List<PrestadorEntity> prestadores;
 }

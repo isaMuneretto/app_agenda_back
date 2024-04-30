@@ -1,5 +1,6 @@
 package com.app_agenda_back.Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +12,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "usuario")
+@Table(name = "telefone")
 public class TelefoneEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -19,14 +20,15 @@ public class TelefoneEntity implements Serializable {
     @Column(name = "telefone_id")
     private Long telefone_id;
 
-    @Column(name = "telefone_numero")
+    @Column(name = "telefone_numero",nullable = false,length = 45)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "(XX) XXXX-XXXX")
     private String telefone_numero;
 
-    @ManyToOne
-    @JoinColumn(name = "telefone_usuario_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "telefone_usuario_id",nullable = false)
     private UsuarioEntity usuario;
 
-    @ManyToOne
-    @JoinColumn(name = "telefone_prestador_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "telefone_prestador_id",nullable = false)
     private PrestadorEntity prestador;
 }
