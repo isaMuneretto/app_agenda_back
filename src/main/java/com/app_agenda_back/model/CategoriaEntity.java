@@ -22,7 +22,7 @@ public class CategoriaEntity implements Serializable {
 
     private String categoriaDescricao;
 
-    @OneToMany(mappedBy = "servicoId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "servico_categoriaId", fetch = FetchType.LAZY)
     private List<ServicoEntity> servicos = new ArrayList<>();
 
 }

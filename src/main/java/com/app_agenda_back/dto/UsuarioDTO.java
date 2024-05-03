@@ -2,11 +2,15 @@ package com.app_agenda_back.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UsuarioDTO implements Serializable {
     private static final long SerialversionUID = 1L;
     private Long usuarioId;

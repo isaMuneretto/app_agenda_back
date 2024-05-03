@@ -40,7 +40,7 @@ public class PrestadorEntity implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "prestador_enderecoId", nullable = false)
-    private EnderecoEntity endereco;
+    private EnderecoEntity prestador_enderecoId;
 
     @OneToMany(mappedBy = "telefoneId", fetch = FetchType.LAZY)
     private List<TelefoneEntity> telefones = new ArrayList<>();

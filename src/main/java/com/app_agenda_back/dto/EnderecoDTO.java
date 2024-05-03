@@ -1,11 +1,15 @@
 package com.app_agenda_back.dto;
 
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class EnderecoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long enderecoId;
@@ -14,7 +18,7 @@ public class EnderecoDTO implements Serializable {
     @NotNull(message = "O campo CEP é requerido")
     private String enderecoCep;
     @NotNull(message = "O campo NUMERO é requerido")
-    private String enderecoNumero;
+    private Integer enderecoNumero;
     private String enderecoComplemento;
     @NotNull(message = "O campo CIDADE é requerido")
     private String enderecoCidade;

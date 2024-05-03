@@ -40,12 +40,12 @@ public class UsuarioEntity implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY) //carregamento lento
     @JoinColumn(name = "usuario_enderecoId",nullable = false) //campo não pode ser nulo
-    private EnderecoEntity endereco;
+    private EnderecoEntity usuario_enderecoId;
 
-    @OneToMany(mappedBy = "agendamentoId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "agendamento_usuarioId", fetch = FetchType.LAZY)
     private List<AgendamentoEntity> agendamentos = new ArrayList<>();
 
-    @OneToMany(mappedBy = "telefoneId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "telefone_usuarioId", fetch = FetchType.LAZY)
     private List<TelefoneEntity> telefones = new ArrayList<>();
 
 }

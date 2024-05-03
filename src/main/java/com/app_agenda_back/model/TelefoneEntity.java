@@ -25,9 +25,9 @@ public class TelefoneEntity implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "telefone_usuarioId",nullable = false)
-    private UsuarioEntity usuario;
+    private UsuarioEntity telefone_usuarioId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "telefone_prestadorId",nullable = false)
-    private PrestadorEntity prestador;
+    private PrestadorEntity telefone_prestadorId;
 }

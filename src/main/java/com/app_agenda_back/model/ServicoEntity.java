@@ -32,11 +32,11 @@ public class ServicoEntity implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "servico_categoriaId",nullable = false)
-    private CategoriaEntity categoria;
+    private CategoriaEntity servico_categoriaId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "servico_prestadorId",nullable = false)
-    private PrestadorEntity prestador;
+    private PrestadorEntity servico_prestadorId;
 
     @OneToMany(mappedBy = "agendamentoId", fetch = FetchType.LAZY)
     private List<AgendamentoEntity> agendamentos = new ArrayList<>();
