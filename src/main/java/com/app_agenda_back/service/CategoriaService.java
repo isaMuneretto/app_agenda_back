@@ -1,6 +1,7 @@
 package com.app_agenda_back.service;
 
 import com.app_agenda_back.dto.CategoriaDTO;
+import com.app_agenda_back.mapper.CategoriaMapper;
 import com.app_agenda_back.model.CategoriaEntity;
 import com.app_agenda_back.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +34,13 @@ public class CategoriaService {
     public CategoriaDTO create(CategoriaDTO categoriaDTO){
         CategoriaEntity categoria = categoriaMapper.toEntity(categoriaDTO);
         categoria = categoriaRepository.save(categoria); //"categoria =" é a entidade com o id e os outros campos que o save salva no banco. Banco não aceita DTO
+
         return categoriaMapper.toDTO(categoria); //transforma em DTO e envia para o front-end
     }
 
     //atualiza categoria
     public CategoriaDTO update(Long id,CategoriaDTO categoriaDTO){
-        CategoriaEntity categoria = categoriaRepository.findById(id).orElseThrow(()->new IllegalArgumentException("Categoria não encontrada"));
+        CategoriaEntity categoria = categoriaRepository.findById(id).orElseThrow(()->new IllegalArgumentException("Categoria atualizada"));
         categoriaMapper.updateEntity(categoriaDTO,categoria);
         categoria = categoriaRepository.save(categoria);
         return categoriaMapper.toDTO(categoria);

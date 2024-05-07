@@ -24,7 +24,7 @@ public class EnderecoEntity implements Serializable {
 
     private String enderecoCep;
 
-    private String enderecoNumero;
+    private int enderecoNumero;
 
     private String enderecoComplemento;
 
