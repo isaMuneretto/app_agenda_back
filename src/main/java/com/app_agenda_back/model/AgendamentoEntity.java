@@ -21,18 +21,24 @@ public class AgendamentoEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long agendamentoId;
+
     @Temporal(TemporalType.DATE)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate agendamentoData;
+
     @Temporal(TemporalType.TIME)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private LocalTime agendamentoHorario;
+
     private String agendamentoObservacao;
+
     @Enumerated(EnumType.STRING)
     private AgendamentoStatus agendamentoStatus;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "agendamento_servicoId",nullable = false)
     private ServicoEntity agendamento_servicoId;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "agendamento_usuarioId",nullable = false)
     private UsuarioEntity agendamento_usuarioId;
