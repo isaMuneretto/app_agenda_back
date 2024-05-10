@@ -20,6 +20,7 @@ public class CategoriaDTO implements Serializable {
 
     @NotNull(message = "O campo DESCRICAO é requerido")
     private String categoriaDescricao;
-//    private List<ServicoDTO> servicos;
+
+    //private List<ServicoDTO> servicos;
 
 }

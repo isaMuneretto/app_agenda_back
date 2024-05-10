@@ -27,6 +27,37 @@ public interface EnderecoMapper {
             @Mapping(source = "enderecoDTO.enderecoCidade", target = "enderecoCidade"),
             @Mapping(source = "enderecoDTO.enderecoEstado", target = "enderecoEstado"),
             @Mapping(source = "enderecoDTO.enderecoBairro", target = "enderecoBairro"),
+            @Mapping(source = "enderecoDTO.usuarios", target = "usuarios"),
+            @Mapping(source = "enderecoDTO.prestadores", target = "prestadores")
     })
     EnderecoEntity updateEntity(EnderecoDTO enderecoDTO, EnderecoEntity endereco);
 }
+
+
+
+
+//CONVERSÃO MANUAL DTO P/ ENTITY E VICE-VERSA
+//public EnderecoDTO convertToDTO(EnderecoEntity endereco){
+//    EnderecoDTO enderecoDTO = new EnderecoDTO();
+//    enderecoDTO.setEnderecoId(endereco.getEnderecoId());
+//    enderecoDTO.setEnderecoRua(endereco.getEnderecoRua());
+//    enderecoDTO.setEnderecoCep(endereco.getEnderecoCep());
+//    enderecoDTO.setEnderecoNumero(endereco.getEnderecoNumero());
+//    enderecoDTO.setEnderecoComplemento(endereco.getEnderecoComplemento());
+//    enderecoDTO.setEnderecoCidade(endereco.getEnderecoCidade());
+//    enderecoDTO.setEnderecoEstado(endereco.getEnderecoEstado());
+//    enderecoDTO.setEnderecoBairro(endereco.getEnderecoBairro());
+//    return enderecoDTO;
+//}
+
+//public EnderecoEntity convertToEntity(EnderecoDTO enderecoDTO){
+//    EnderecoEntity endereco = new EnderecoDTO();
+//    EnderecoEntity.setEnderecoId(enderecoDTO.getEnderecoId());
+//    EnderecoEntity.setEnderecoRua(enderecoDTO.getEnderecoRua());
+//    EnderecoEntity.setEnderecoCep(enderecoDTO.getEnderecoCep());
+//    EnderecoEntity.setEnderecoNumero(enderecoDTO.getEnderecoNumero());
+//    EnderecoEntity.setEnderecoComplemento(enderecoDTO.getEnderecoComplemento());
+//    EnderecoEntity.setEnderecoCidade(enderecoDTO.getEnderecoCidade());
+//    EnderecoEntity.setEnderecoEstado(enderecoDTO.getEnderecoEstado());
+//    EnderecoEntity.setEnderecoBairro(enderecoDTO.getEnderecoBairro());
+//    return endereco;

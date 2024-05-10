@@ -34,9 +34,9 @@ public class EnderecoEntity implements Serializable {
 
     private String enderecoBairro;
 
-    @OneToMany(mappedBy = "usuarioId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "usuarioId", fetch = FetchType.EAGER)
     private List<UsuarioEntity> usuarios = new ArrayList<>();
 
-    @OneToMany(mappedBy = "prestadorId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "prestadorId", fetch = FetchType.EAGER)
     private List<PrestadorEntity> prestadores = new ArrayList<>();
 }
