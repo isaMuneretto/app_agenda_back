@@ -1,11 +1,7 @@
 package com.app_agenda_back.controller;
 
-import com.app_agenda_back.dto.CategoriaDTO;
-import com.app_agenda_back.dto.EnderecoDTO;
 import com.app_agenda_back.dto.UsuarioDTO;
-import com.app_agenda_back.service.AgendamentoService;
 import com.app_agenda_back.service.EnderecoService;
-import com.app_agenda_back.service.TelefoneService;
 import com.app_agenda_back.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +19,6 @@ public class UsuarioController {
 
     @Autowired
     private EnderecoService enderecoService;
-
-    @Autowired
-    private TelefoneService telefoneService;
-
-    @Autowired
-    private AgendamentoService agendamentoService;
 
     @PostMapping
     public ResponseEntity<UsuarioDTO> salvar(@Valid @RequestBody UsuarioDTO usuarioDTO) { //recebe os dados do post sem id

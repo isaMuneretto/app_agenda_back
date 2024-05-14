@@ -35,17 +35,17 @@ public class UsuarioEntity implements Serializable {
     @Column(unique = true)
     private String usuarioSenha;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "yyyy/MM/dddd")
     private LocalDate usuarioDataNascimento;
 
-    @ManyToOne(fetch = FetchType.LAZY) //carregamento lento
+    @ManyToOne(fetch = FetchType.EAGER) //carregamento lento
     @JoinColumn(name = "usuario_enderecoId",nullable = false) //campo não pode ser nulo
-    private EnderecoEntity usuario_enderecoId;
+    private EnderecoEntity endereco;
 
-    @OneToMany(mappedBy = "agendamento_usuarioId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "agendamento_usuarioId", fetch = FetchType.EAGER)
     private List<AgendamentoEntity> agendamentos = new ArrayList<>();
 
-    @OneToMany(mappedBy = "telefone_usuarioId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "telefone_usuarioId", fetch = FetchType.EAGER)
     private List<TelefoneEntity> telefones = new ArrayList<>();
 
 }

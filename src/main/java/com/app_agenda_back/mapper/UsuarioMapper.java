@@ -25,7 +25,7 @@ public interface UsuarioMapper {
             @Mapping(source = "usuarioDTO.usuarioEmail", target = "usuarioEmail"),
             @Mapping(source = "usuarioDTO.usuarioDataNascimento", target = "usuarioDataNascimento"),
             @Mapping(source = "usuarioDTO.usuarioSenha", target = "usuarioSenha"),
-            @Mapping(source = "usuarioDTO.enderecoId", target = "usuario_enderecoId.enderecoId"),
+            @Mapping(source = "usuarioDTO.endereco", target = "endereco"),
 //            @Mapping(source = "usuarioDTO.telefones", target = "telefones"),
 //            @Mapping(source = "usuarioDTO.agendamentos", target = "agendamentos"),
     })

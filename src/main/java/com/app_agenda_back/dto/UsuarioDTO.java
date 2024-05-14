@@ -24,7 +24,7 @@ public class UsuarioDTO implements Serializable {
 
     @CPF
     @NotNull(message = "O campo CPF é requerido")
-    private Double usuarioCpf;
+    private String usuarioCpf;
 
     @NotNull(message = "O campo EMAIL é requerido")
     private String usuarioEmail;
@@ -32,15 +32,12 @@ public class UsuarioDTO implements Serializable {
     @NotNull(message = "O campo SENHA é requerido")
     private String usuarioSenha;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "O campo DATA_NASCIMENTO é requerido")
     private LocalDate usuarioDataNascimento;
 
-    @NotNull(message = "O campo ENDEREÇO_ID é requerido")
-    private Long enderecoId;
-
     @JsonIgnore
-    private EnderecoEntity usuario_enderecoId;
+    private EnderecoEntity endereco;
 
 //    @JsonIgnore
 //    private List<TelefoneDTO> telefones;

@@ -18,15 +18,6 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     @Autowired
-    private EnderecoService enderecoService;
-
-    @Autowired
-    private TelefoneService telefoneService;
-
-    @Autowired
-    private AgendamentoService agendamentoService;
-
-    @Autowired
     private UsuarioMapper usuarioMapper;
 
     public UsuarioDTO salvar(UsuarioDTO usuarioDTO){
@@ -48,7 +39,7 @@ public class UsuarioService {
 
     public UsuarioDTO update(Long id,UsuarioDTO usuarioDTO){
         UsuarioEntity usuario = usuarioRepository.findById(id).orElseThrow(()->new IllegalArgumentException("Endereço não encontrado"));
-        usuarioDTO.setUsuarioId(usuario.getUsuarioId()); //setar o id para nao criar um novo
+        //usuarioDTO.setUsuarioId(usuario.getUsuarioId()); //setar o id para nao criar um novo
         usuario = usuarioMapper.updateEntity(usuarioDTO,usuario);
         usuario = usuarioRepository.save(usuario);
         return usuarioMapper.toDTO(usuario);

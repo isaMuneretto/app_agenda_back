@@ -41,7 +41,7 @@ public class EnderecoService {
     //atualiza um endereco
     public EnderecoDTO update(Long id,EnderecoDTO enderecoDTO){
         EnderecoEntity endereco = enderecoRepository.findById(id).orElseThrow(()->new IllegalArgumentException("Endereço não encontrado"));
-        enderecoDTO.setEnderecoId(endereco.getEnderecoId()); //setar o id para nao criar um novo
+       // enderecoDTO.setEnderecoId(endereco.getEnderecoId()); //setar o id para nao criar um novo
         endereco = enderecoMapper.updateEntity(enderecoDTO,endereco);
         endereco = enderecoRepository.save(endereco);
         return enderecoMapper.toDTO(endereco);
